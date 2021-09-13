@@ -1,0 +1,1 @@
+export const BASE_URL = 'https://sds4-dsvendas-itamaralves.herokuapp.com'
