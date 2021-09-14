@@ -32,7 +32,7 @@ const DataTable = () => {
 
     return (
         <>
-            <Pagination page={page} onPageChange={changePage}/>
+            <Pagination page={page} onPageChange={changePage} />
             <div className="table-responsive">
                 <table className="table table-striped table-sm">
                     <thead>
@@ -51,7 +51,12 @@ const DataTable = () => {
                                 <td>{item.seller.name}</td>
                                 <td>{item.visited}</td>
                                 <td>{item.deals}</td>
-                                <td>{item.amount.toFixed(2)}</td>
+                                <td>{item.amount
+                                    .toFixed(2)
+                                    .replace(".", ",")
+                                    .replace(/(\d)(\d{3})(\d{3}),/g, "$1.$2.$3,")
+                                    .replace(/(\d)(\d{3}),/g, "$1.$2,")}
+                                </td>
                             </tr>
                         ))
                         }
